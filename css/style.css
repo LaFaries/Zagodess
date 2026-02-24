@@ -7,7 +7,62 @@ right:25px;
 z-index:9999;
 font-family:Quicksand, sans-serif;
 }
+/* ✨ Sparkling Floating Pulse */
+#zaraAvatar{
+position:relative;
+z-index:2;
+}
 
+/* Pink Glow Ring */
+#zaraAgent::before{
+content:"";
+position:absolute;
+width:85px;
+height:85px;
+border-radius:50%;
+background:radial-gradient(circle,
+rgba(255,160,200,.55),
+rgba(255,160,200,.15),
+transparent 70%);
+animation:zaraPulse 2.2s infinite ease-out;
+}
+
+/* Sparkle Layer */
+#zaraAgent::after{
+content:"";
+position:absolute;
+width:90px;
+height:90px;
+border-radius:50%;
+background:
+radial-gradient(circle at 20% 30%, #fff 2px, transparent 3px),
+radial-gradient(circle at 70% 40%, #fff 2px, transparent 3px),
+radial-gradient(circle at 40% 70%, #fff 2px, transparent 3px);
+opacity:.8;
+animation:zaraSparkle 3s infinite linear;
+pointer-events:none;
+}
+
+/* Pulse Animation */
+@keyframes zaraPulse{
+0%{
+transform:scale(1);
+opacity:.7;
+}
+70%{
+transform:scale(1.35);
+opacity:0;
+}
+100%{
+opacity:0;
+}
+}
+
+/* Sparkle Rotation */
+@keyframes zaraSparkle{
+from{ transform:rotate(0deg); }
+to{ transform:rotate(360deg); }
+}
 #zaraAvatar{
 width:70px;
 height:70px;
