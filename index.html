@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Zara Custom Jewelry Boutique</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+<!-- Zara Agent CSS -->
+<link rel="stylesheet" href="css/zara-agent.css">
 
 <style>
 body{
@@ -95,10 +99,8 @@ font-size:14px;
 <body>
 
 <header>
-<img src="logo.png" class="logo">
-<nav>
+<img src="images/logo.png" class="logo" alt="Zara Boutique Logo">
 <a href="shop.html">Shop</a>
-</nav>
 </header>
 
 <section class="hero">
@@ -113,17 +115,17 @@ font-size:14px;
 <div class="products">
 
 <div class="card">
-<img src="product1.jpg">
+<img src="images/product1.jpg">
 <p>Custom Bracelet</p>
 </div>
 
 <div class="card">
-<img src="product2.jpg">
+<img src="images/product2.jpg">
 <p>Charm Necklace</p>
 </div>
 
 <div class="card">
-<img src="product3.jpg">
+<img src="images/product3.jpg">
 <p>Beaded Earrings</p>
 </div>
 
@@ -133,63 +135,12 @@ font-size:14px;
 <footer>
 © Zara Custom Jewelry Boutique
 </footer>
+
 <!-- Zara FAQ Agent -->
-<style>
-#zaraAgent{
-position:fixed;
-bottom:25px;
-right:25px;
-z-index:9999;
-font-family:Quicksand, sans-serif;
-}
-
-#zaraAvatar{
-width:70px;
-height:70px;
-border-radius:50%;
-cursor:pointer;
-box-shadow:0 6px 18px rgba(0,0,0,.15);
-border:3px solid #ffd6ea;
-}
-
-#zaraChat{
-display:none;
-width:300px;
-background:#fff6fb;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-padding:15px;
-margin-top:10px;
-}
-
-#zaraChat h3{
-margin:0 0 10px;
-color:#d45a8c;
-font-size:18px;
-}
-
-.faqItem{
-background:white;
-padding:10px;
-border-radius:12px;
-margin-bottom:8px;
-cursor:pointer;
-box-shadow:0 3px 10px rgba(0,0,0,.05);
-}
-
-.answer{
-display:none;
-font-size:14px;
-margin-top:6px;
-color:#444;
-}
-</style>
-
 <div id="zaraAgent">
 
-<!-- USE ZARA FACE HERE -->
 <img id="zaraAvatar"
-src="zara-avatar.png"
+src="images/zara-avatar.png"
 alt="Ask Zara">
 
 <div id="zaraChat">
@@ -218,13 +169,16 @@ const avatar = document.getElementById("zaraAvatar");
 const chat = document.getElementById("zaraChat");
 
 avatar.onclick = () => {
-chat.style.display = chat.style.display === "block" ? "none" : "block";
+chat.style.display =
+chat.style.display === "block" ? "none" : "block";
 };
 
 function toggleAnswer(el){
 const ans = el.querySelector(".answer");
-ans.style.display = ans.style.display === "block" ? "none" : "block";
+ans.style.display =
+ans.style.display === "block" ? "none" : "block";
 }
 </script>
+
 </body>
 </html>
