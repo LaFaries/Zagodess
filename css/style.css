@@ -135,7 +135,7 @@ background:#fff6fb;
 border-radius:18px;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
 padding:15px;
-animation:zaraFade .25s ease;
+/* animation:zaraFade removed - conflicts with display:none toggle; .active transition handles open/close */
 transform:translateY(15px);
 opacity:0;
 transition:all .35s ease;
@@ -167,7 +167,10 @@ transition:all .2s ease;
 border-left:4px solid var(--zara-gold);
 }
 
-.faqItem:hover
+.faqItem:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 16px rgba(0,0,0,.09);
+}
 
 .answer{
 display:none;

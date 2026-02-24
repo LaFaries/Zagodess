@@ -28,7 +28,7 @@ box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-height:45px;
+height:55px;
 }
 
 h1{
@@ -86,7 +86,7 @@ font-size:14px;
 <body>
 
 <header>
-<img src="assets/images/zara-avatar.png?v=5" class="logo" alt="Zara Boutique Logo">
+<img src="assets/images/logo.png" class="logo" alt="Zara Boutique Logo">
 <a href="index.html">Home</a>
 </header>
 
@@ -115,7 +115,7 @@ font-size:14px;
 </div>
 
 <footer>
-© Zara Custom Jewelry Boutique
+&copy; Zara Custom Jewelry Boutique
 </footer>
 
 <!-- FLOATING ZARA AGENT -->
@@ -125,7 +125,7 @@ font-size:14px;
 Hi! I'm Zara 💖 Need help choosing?
 </div>
 
-<img id="zaraAvatar" src="assets/images/zara-avatar.png?v=5" alt="Ask Zara">
+<img id="zaraAvatar" src="assets/images/zara-avatar.png" alt="Ask Zara">
 
 <div id="zaraChat">
 <h3>Ask Zara ✨</h3>
@@ -160,6 +160,7 @@ chat.style.display="block";
 if(greeting) greeting.style.display="none";
 }else{
 chat.style.display="none";
+if(greeting) greeting.style.display="block";
 }
 };
 

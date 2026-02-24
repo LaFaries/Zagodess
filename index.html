@@ -8,7 +8,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=3">
 
 <style>
 body{
@@ -28,7 +28,7 @@ box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-height:45px;
+height:55px;
 }
 
 .hero{
@@ -93,7 +93,7 @@ font-size:14px;
 <body>
 
 <header>
-<img src="assets/images/logo.png?v=3" class="logo" alt="Zara Boutique Logo">
+<img src="assets/images/logo.png" class="logo" alt="Zara Boutique Logo">
 <a href="Shop.html">Shop</a>
 </header>
 
@@ -113,10 +113,10 @@ font-size:14px;
 </div>
 </section>
 <section style="text-align:center;padding:60px 20px;">
-<img src="assets/images/zara-avatar.png?v=5" style="width:260px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.15);">
+<img src="assets/images/zara-portrait.png" alt="Zara" style="width:260px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.15);">
 </section>
 <footer>
-© Zara Custom Jewelry Boutique
+&copy; Zara Custom Jewelry Boutique
 </footer>
 
 <div id="zaraAgent">
@@ -125,7 +125,7 @@ font-size:14px;
 Hi! I'm Zara 💖 Need help choosing?
 </div>
 
-<img id="zaraAvatar" src="assets/zara-avatar.png?v=3" alt="Ask Zara">
+<img id="zaraAvatar" src="assets/images/zara-avatar.png" alt="Ask Zara">
 
 <div id="zaraChat">
 <h3>Ask Zara ✨</h3>
@@ -161,6 +161,7 @@ chat.style.display="block";
 if(greeting) greeting.style.display="none";
 }else{
 chat.style.display="none";
+if(greeting) greeting.style.display="block";
 }
 };
 
