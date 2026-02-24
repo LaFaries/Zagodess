@@ -28,7 +28,7 @@ box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-height:70px;
+height:45px;
 }
 
 .hero{
@@ -40,7 +40,7 @@ background:linear-gradient(180deg,#ffe6f3,#ffffff);
 .hero h1{
 font-family:'Playfair Display',serif;
 font-size:42px;
-color:#d45a8c;
+color:#6d0019; /* deep maroon */
 }
 
 .hero p{
@@ -53,12 +53,12 @@ font-size:18px;
 display:inline-block;
 margin-top:20px;
 padding:14px 28px;
-background:#ff85b3;
-color:white;
+background:linear-gradient(45deg,#d4af37,#f6e3a3); /* metallic gold */
+color:#6d0019;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
-box-shadow:0 5px 15px rgba(255,133,179,.4);
+box-shadow:0 5px 15px rgba(212,175,55,.4);
 }
 
 .section{
@@ -108,17 +108,9 @@ font-size:14px;
 
 <div class="products">
 
-<div class="card">
-<p>Custom Bracelet</p>
-</div>
-
-<div class="card">
-<p>Charm Necklace</p>
-</div>
-
-<div class="card">
-<p>Beaded Earrings</p>
-</div>
+<div class="card"><p>Custom Bracelet</p></div>
+<div class="card"><p>Charm Necklace</p></div>
+<div class="card"><p>Beaded Earrings</p></div>
 
 </div>
 </section>
@@ -127,15 +119,17 @@ font-size:14px;
 © Zara Custom Jewelry Boutique
 </footer>
 
-<!-- ZARA AGENT (PLACED CORRECTLY AT BOTTOM OF BODY) -->
+<!-- ✅ ONLY ONE FLOATING ZARA AGENT -->
 <div id="zaraAgent">
 
-<img id="zaraAvatar"
-src="assets/zara-avatar.png"
-alt="Ask Zara">
+<div id="zaraGreeting">
+Hi! I'm Zara 💖 Need help choosing?
+</div>
+
+<img id="zaraAvatar" src="assets/zara-avatar.png" alt="Ask Zara">
 
 <div id="zaraChat">
-<h3>Hi! I'm Zara 💖</h3>
+<h3>Ask Zara ✨</h3>
 
 <div class="faqItem" onclick="toggleAnswer(this)">
 How long do custom orders take?
@@ -158,10 +152,17 @@ How do I place an order?
 <script>
 const avatar = document.getElementById("zaraAvatar");
 const chat = document.getElementById("zaraChat");
+const greeting = document.getElementById("zaraGreeting");
 
 avatar.onclick = () => {
-chat.style.display =
-chat.style.display === "block" ? "none" : "block";
+chat.classList.toggle("active");
+
+if(chat.classList.contains("active")){
+chat.style.display="block";
+if(greeting) greeting.style.display="none";
+}else{
+chat.style.display="none";
+}
 };
 
 function toggleAnswer(el){
