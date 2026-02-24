@@ -10,7 +10,6 @@ align-items:center;
 justify-content:center;
 width:70px;
 height:70px;
-position:fixed;
 }
 
 /* ✨ Sparkling Floating Pulse */
@@ -29,6 +28,9 @@ transition:transform .25s ease;
 
 #zaraAvatar:hover{
 transform:scale(1.05);
+box-shadow:
+0 0 0 4px rgba(255,200,220,.4),
+0 0 25px rgba(255,160,200,.45);
 }
 
 /* Pink Glow Ring */
@@ -61,14 +63,12 @@ animation:zaraSparkle 3s infinite linear;
 pointer-events:none;
 }
 
-/* Pulse Animation */
 @keyframes zaraPulse{
 0%{ transform:scale(1); opacity:.7; }
 70%{ transform:scale(1.35); opacity:0; }
 100%{ opacity:0; }
 }
 
-/* Sparkle Rotation */
 @keyframes zaraSparkle{
 from{ transform:rotate(0deg); }
 to{ transform:rotate(360deg); }
@@ -84,12 +84,51 @@ box-shadow:0 10px 25px rgba(0,0,0,.15);
 padding:15px;
 margin-top:10px;
 animation:zaraFade .25s ease;
+transform:translateY(15px);
+opacity:0;
+transition:all .35s ease;
+}
+
+#zaraChat.active{
+transform:translateY(0);
+opacity:1;
 }
 
 #zaraChat h3{
 margin:0 0 12px;
 color:#d45a8c;
 font-size:18px;
+}
+
+/* Floating greeting bubble */
+#zaraGreeting{
+position:absolute;
+bottom:95px;
+right:0;
+background:#ffffff;
+color:#d45a8c;
+padding:10px 14px;
+border-radius:18px;
+box-shadow:0 8px 18px rgba(0,0,0,.12);
+font-size:14px;
+white-space:nowrap;
+opacity:0;
+transform:translateY(10px);
+animation:zaraGreetingIn 1s ease forwards;
+animation-delay:1.5s;
+pointer-events:none;
+}
+
+#zaraGreeting::after{
+content:"";
+position:absolute;
+bottom:-6px;
+right:20px;
+width:12px;
+height:12px;
+background:#fff;
+transform:rotate(45deg);
+box-shadow:2px 2px 6px rgba(0,0,0,.05);
 }
 
 .faqItem{
@@ -123,60 +162,8 @@ to{
 opacity:1;
 transform:translateY(0);
 }
-}/* ===== LUXURY CONCIERGE MODE ===== */
-
-/* Floating greeting bubble */
-#zaraGreeting{
-position:absolute;
-bottom:95px;
-right:0;
-background:#ffffff;
-color:#d45a8c;
-padding:10px 14px;
-border-radius:18px;
-box-shadow:0 8px 18px rgba(0,0,0,.12);
-font-size:14px;
-white-space:nowrap;
-opacity:0;
-transform:translateY(10px);
-animation:zaraGreetingIn 1s ease forwards;
-animation-delay:1.5s;
-pointer-events:none;
 }
 
-/* tiny tail */
-#zaraGreeting::after{
-content:"";
-position:absolute;
-bottom:-6px;
-right:20px;
-width:12px;
-height:12px;
-background:#fff;
-transform:rotate(45deg);
-box-shadow:2px 2px 6px rgba(0,0,0,.05);
-}
-
-/* concierge chat panel animation */
-#zaraChat{
-transform:translateY(15px);
-opacity:0;
-transition:all .35s ease;
-}
-
-#zaraChat.active{
-transform:translateY(0);
-opacity:1;
-}
-
-/* sparkle hover shimmer */
-#zaraAvatar:hover{
-box-shadow:
-0 0 0 4px rgba(255,200,220,.4),
-0 0 25px rgba(255,160,200,.45);
-}
-
-/* greeting animation */
 @keyframes zaraGreetingIn{
 to{
 opacity:1;
