@@ -1,5 +1,5 @@
 /* ===============================
-   ZARA BOUTIQUE LUXURY VARIABLES
+ZARA BOUTIQUE LUXURY VARIABLES
 =================================*/
 :root{
 --zara-gold:#d4af37;
@@ -8,7 +8,7 @@
 }
 
 /* ===============================
-   FLOATING ZARA AGENT CONTAINER
+FLOATING ZARA AGENT CONTAINER
 =================================*/
 #zaraAgent{
 position:fixed;
@@ -24,7 +24,7 @@ justify-content:center;
 }
 
 /* ===============================
-   ZARA AVATAR
+ZARA AVATAR
 =================================*/
 #zaraAvatar{
 position:relative;
@@ -44,11 +44,11 @@ transition:all .25s ease;
 transform:scale(1.05);
 box-shadow:
 0 0 0 4px rgba(255,200,220,.4),
-0 0 25px rgba(255,160,200,.45);
+0 0 25px rgba(212,175,55,.55);
 }
 
 /* ===============================
-   SPARKLE GLOW RING
+GOLD SHIMMER SPARKLE PULSE
 =================================*/
 #zaraAgent::before{
 content:"";
@@ -57,8 +57,8 @@ width:85px;
 height:85px;
 border-radius:50%;
 background:radial-gradient(circle,
-rgba(255,160,200,.55),
-rgba(255,160,200,.15),
+rgba(212,175,55,.6),
+rgba(212,175,55,.2),
 transparent 70%);
 animation:zaraPulse 2.2s infinite ease-out;
 }
@@ -73,7 +73,7 @@ background:
 radial-gradient(circle at 20% 30%, #fff 2px, transparent 3px),
 radial-gradient(circle at 70% 40%, #fff 2px, transparent 3px),
 radial-gradient(circle at 40% 70%, #fff 2px, transparent 3px);
-opacity:.8;
+opacity:.9;
 animation:zaraSparkle 3s infinite linear;
 pointer-events:none;
 }
@@ -90,7 +90,7 @@ to{ transform:rotate(360deg); }
 }
 
 /* ===============================
-   GREETING BUBBLE
+GREETING BUBBLE
 =================================*/
 #zaraGreeting{
 position:absolute;
@@ -123,7 +123,7 @@ box-shadow:2px 2px 6px rgba(0,0,0,.05);
 }
 
 /* ===============================
-   CHAT WINDOW
+CHAT WINDOW
 =================================*/
 #zaraChat{
 position:absolute;
@@ -154,7 +154,7 @@ font-family:'Playfair Display',serif;
 }
 
 /* ===============================
-   FAQ CARDS
+FAQ CARDS
 =================================*/
 .faqItem{
 background:white;
@@ -167,9 +167,7 @@ transition:all .2s ease;
 border-left:4px solid var(--zara-gold);
 }
 
-.faqItem:hover{
-background:#ffe8f3;
-}
+.faqItem:hover
 
 .answer{
 display:none;
@@ -180,7 +178,7 @@ line-height:1.4;
 }
 
 /* ===============================
-   ANIMATIONS
+ANIMATIONS
 =================================*/
 @keyframes zaraFade{
 from{
