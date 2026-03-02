@@ -132,16 +132,72 @@ nav a:hover{ transform:translateY(-2px); }
 /* Prev/next arrows */
 .media-arrow{
   position:absolute; top:50%; transform:translateY(-50%);
-  background:rgba(255,255,255,0.75);
-  border:none; border-radius:50%;
-  width:32px; height:32px;
-  font-size:16px; cursor:pointer; z-index:5;
+  background:rgba(109,0,25,0.82);
+  border:2px solid #d4af37;
+  border-radius:50%;
+  width:44px; height:44px;
+  font-size:24px; font-weight:900; color:#fff;
+  cursor:pointer; z-index:5;
   display:flex; align-items:center; justify-content:center;
-  transition:background .2s;
+  box-shadow:0 4px 16px rgba(0,0,0,0.35);
+  transition:background .2s, transform .15s;
 }
-.media-arrow:hover{ background:rgba(255,255,255,0.95); }
+.media-arrow:hover{ background:#6d0019; transform:translateY(-50%) scale(1.12); }
 .media-arrow.prev{ left:10px; }
 .media-arrow.next{ right:10px; }
+
+/* Photo counter badge */
+.media-counter{
+  position:absolute; top:10px; right:12px;
+  background:rgba(109,0,25,0.82);
+  color:#fff; font-size:12px; font-weight:700;
+  padding:4px 10px; border-radius:20px;
+  z-index:5; letter-spacing:1px;
+  border:1px solid rgba(212,175,55,0.6);
+}
+
+/* Swipe hint */
+.swipe-hint{
+  position:absolute; bottom:38px; left:50%;
+  transform:translateX(-50%);
+  background:rgba(109,0,25,0.75);
+  color:#f6e3a3; font-size:11px; font-weight:700;
+  padding:3px 12px; border-radius:20px;
+  z-index:5; white-space:nowrap;
+  letter-spacing:0.5px;
+  animation:hintPulse 2s ease-in-out 1.5s 3;
+}
+@keyframes hintPulse{
+  0%,100%{ opacity:1; }
+  50%{ opacity:0.4; }
+}
+
+/* Thumbnail strip below earring card */
+.thumb-strip{
+  display:flex; gap:6px; padding:10px 14px 14px;
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  background:#fff;
+  -webkit-overflow-scrolling:touch;
+}
+.thumb-strip::-webkit-scrollbar{ height:4px; }
+.thumb-strip::-webkit-scrollbar-thumb{ background:#d4af37; border-radius:4px; }
+.thumb-strip img{
+  width:58px; height:58px;
+  object-fit:cover;
+  border-radius:10px;
+  flex-shrink:0;
+  scroll-snap-align:start;
+  cursor:pointer;
+  border:2px solid transparent;
+  transition:border-color .2s, transform .2s;
+  opacity:0.7;
+}
+.thumb-strip img.active-thumb{
+  border-color:#d4af37;
+  opacity:1;
+  transform:scale(1.08);
+}
+.thumb-strip img:hover{ opacity:1; border-color:#6d0019; }
 
 .card-body{
   padding:20px;
@@ -346,7 +402,7 @@ footer .footer-links a:hover{ opacity:1; }
     </div>
 
     <!-- EARRINGS CARD -->
-    <div class="product-card">
+    <div class="product-card" style="overflow:visible;">
       <div class="card-media" id="media-earrings">
         <img src="assets/images/earrings/earring_01.png" class="active" alt="Beaded Earrings">
         <img src="assets/images/earrings/earring_02.png" alt="Beaded Earrings">
@@ -358,9 +414,27 @@ footer .footer-links a:hover{ opacity:1; }
         <img src="assets/images/earrings/earring_08.png" alt="Beaded Earrings">
         <video src="assets/videos/product_05.mp4" muted loop playsinline></video>
         <video src="assets/videos/product_06.mp4" muted loop playsinline></video>
+        <!-- Bold visible arrows -->
         <button class="media-arrow prev" onclick="slideMedia('earrings',-1)">&#8249;</button>
         <button class="media-arrow next" onclick="slideMedia('earrings',1)">&#8250;</button>
+        <!-- Photo counter: 1 of 10 -->
+        <div class="media-counter" id="counter-earrings">1 / 10</div>
+        <!-- Swipe hint shown on load -->
+        <div class="swipe-hint" id="hint-earrings">✦ Tap arrows to see all 10 photos ✦</div>
         <div class="media-dots" id="dots-earrings"></div>
+      </div>
+      <!-- Thumbnail strip — all photos visible at a glance -->
+      <div class="thumb-strip" id="thumbs-earrings">
+        <img src="assets/images/earrings/earring_01.png" class="active-thumb" alt="Earring 1" onclick="jumpToSlide('earrings',0)">
+        <img src="assets/images/earrings/earring_02.png" alt="Earring 2" onclick="jumpToSlide('earrings',1)">
+        <img src="assets/images/earrings/earring_03.png" alt="Earring 3" onclick="jumpToSlide('earrings',2)">
+        <img src="assets/images/earrings/earring_04.png" alt="Earring 4" onclick="jumpToSlide('earrings',3)">
+        <img src="assets/images/earrings/earring_05.png" alt="Earring 5" onclick="jumpToSlide('earrings',4)">
+        <img src="assets/images/earrings/earring_06.png" alt="Earring 6" onclick="jumpToSlide('earrings',5)">
+        <img src="assets/images/earrings/earring_07.png" alt="Earring 7" onclick="jumpToSlide('earrings',6)">
+        <img src="assets/images/earrings/earring_08.png" alt="Earring 8" onclick="jumpToSlide('earrings',7)">
+        <img src="assets/images/earrings/earring_01.png" alt="Video 1" onclick="jumpToSlide('earrings',8)" style="filter:brightness(0.7);">
+        <img src="assets/images/earrings/earring_02.png" alt="Video 2" onclick="jumpToSlide('earrings',9)" style="filter:brightness(0.7);">
       </div>
       <div class="card-body">
         <h3>Beaded Earrings</h3>
@@ -523,10 +597,27 @@ function goTo(name, idx) {
   next.classList.add('active');
   if (next.tagName === 'VIDEO') next.play();
   c.dots[c.index].classList.add('active');
+
+  // Update photo counter for earrings
+  const counter = document.getElementById('counter-' + name);
+  if (counter) counter.textContent = (c.index + 1) + ' / ' + c.total;
+
+  // Update thumbnail strip highlight for earrings
+  const thumbStrip = document.getElementById('thumbs-' + name);
+  if (thumbStrip) {
+    const thumbs = thumbStrip.querySelectorAll('img');
+    thumbs.forEach((t, i) => {
+      t.classList.toggle('active-thumb', i === c.index);
+    });
+  }
 }
 
 function slideMedia(name, dir) {
   goTo(name, carousels[name].index + dir);
+}
+
+function jumpToSlide(name, idx) {
+  goTo(name, idx);
 }
 
 // Auto-advance every 3.5s
